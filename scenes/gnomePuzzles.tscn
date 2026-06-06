@@ -6,39 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://cg0omlb43e33f" path="res://assets/sprites/GNM_rumpel_v01.png" id="4_f16xk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s005v"]
-font_size = 64
+font_size = 32
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="gnomePuzzles" type="Node2D" unique_id=856181745]
 script = ExtResource("1_p4tmc")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2047396871]
-offset_right = 1981.0
-offset_bottom = 700.0
-mouse_filter = 2
-
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1427610406]
-offset_left = -33.0
-offset_top = 696.0
-offset_right = 1951.0
-offset_bottom = 1491.0
-mouse_filter = 2
-color = Color(1, 1, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="." unique_id=1014961294]
-offset_top = 1486.0
-offset_right = 1984.0
-offset_bottom = 2281.0
-mouse_filter = 2
-color = Color(0, 1, 0, 1)
-
 [node name="FondoSinTerminar" type="Sprite2D" parent="." unique_id=46091548]
-position = Vector2(960, 1137)
+position = Vector2(958, 1080)
 texture = ExtResource("2_65sj0")
 
-[node name="GnmRumpelV01" type="Sprite2D" parent="." unique_id=1814281608]
-position = Vector2(993, 1124)
+[node name="GnmRumpelV01" type="Sprite2D" parent="FondoSinTerminar" unique_id=1814281608]
+position = Vector2(33, -13)
 scale = Vector2(1.8862069, 1.8862065)
 texture = ExtResource("4_f16xk")
 
@@ -46,9 +26,9 @@ texture = ExtResource("4_f16xk")
 speed = 1000
 
 [node name="Label" type="Label" parent="Camera2D" unique_id=1761294381]
-offset_left = 187.0
-offset_top = 263.0
-offset_right = 227.0
-offset_bottom = 286.0
+offset_left = 42.0
+offset_top = 40.0
+offset_right = 184.0
+offset_bottom = 85.0
 text = "RONDA 1"
 label_settings = SubResource("LabelSettings_s005v")

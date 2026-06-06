@@ -37,8 +37,8 @@ shape = SubResource("RectangleShape2D_s005v")
 metadata/_edit_lock_ = true
 
 [node name="ReadyButton" type="Button" parent="." unique_id=1487466670]
-offset_left = 1408.0
-offset_top = 691.0
+offset_left = 1599.0
+offset_top = 796.0
 offset_right = 1872.0
 offset_bottom = 920.0
 shortcut = SubResource("Shortcut_psnsf")
