@@ -1,12 +1,6 @@
 [gd_scene format=3 uid="uid://bjahaceownmef"]
 
-[ext_resource type="Script" uid="uid://cjhjsx5kou15l" path="res://scripts/camera_2d.gd" id="1_s005v"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p84c8"]
-size = Vector2(2055.5, 212)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s005v"]
-size = Vector2(1190, 105)
+[ext_resource type="PackedScene" uid="uid://rfstuw2it4fk" path="res://scenes/camera2D.tscn" id="1_s005v"]
 
 [node name="Node2D" type="Node2D" unique_id=856181745]
 
@@ -30,25 +24,5 @@ offset_bottom = 2281.0
 mouse_filter = 2
 color = Color(0, 1, 0, 1)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1691840595]
-position = Vector2(0, 300)
-anchor_mode = 0
-script = ExtResource("1_s005v")
-
-[node name="ScrollDownArea" type="Area2D" parent="Camera2D" unique_id=1700236291]
-position = Vector2(23, 600)
-
-[node name="ScrollDownCollision" type="CollisionShape2D" parent="Camera2D/ScrollDownArea" unique_id=1986924296]
-position = Vector2(959, 44)
-shape = SubResource("RectangleShape2D_p84c8")
-
-[node name="ScrollUpArea" type="Area2D" parent="Camera2D" unique_id=356745474]
-
-[node name="ScrollUpCollision" type="CollisionShape2D" parent="Camera2D/ScrollUpArea" unique_id=1473005979]
-position = Vector2(585, 42.5)
-shape = SubResource("RectangleShape2D_s005v")
-
-[connection signal="mouse_entered" from="Camera2D/ScrollDownArea" to="Camera2D" method="_on_scroll_down_area_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/ScrollDownArea" to="Camera2D" method="_on_scroll_down_area_mouse_exited"]
-[connection signal="mouse_entered" from="Camera2D/ScrollUpArea" to="Camera2D" method="_on_scroll_up_area_mouse_entered"]
-[connection signal="mouse_exited" from="Camera2D/ScrollUpArea" to="Camera2D" method="_on_scroll_up_area_mouse_exited"]
+[node name="Camera2D" parent="." unique_id=307267164 instance=ExtResource("1_s005v")]
+speed = 1000

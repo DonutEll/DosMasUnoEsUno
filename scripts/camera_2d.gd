@@ -34,7 +34,6 @@ func cameraScrollDown():
 		return
 	position.y += speed * get_process_delta_time()
 
-
 func cameraScrollUp():
 	if not movingUp:
 		return
