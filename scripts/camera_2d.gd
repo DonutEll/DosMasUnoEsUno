@@ -1,10 +1,17 @@
 extends Camera2D
 
+class_name puzzleCamera
+
 @export var speed: int = 300
 var movingDown: bool = false
 var movingUp: bool = false
+
 const MIN_HEIGHT: int = 0
 var MAX_HEIGHT: int 
+
+
+signal endRound()
+
 
 func _ready():
 	MAX_HEIGHT = 2160 - get_viewport_rect().size.y
@@ -37,4 +44,4 @@ func _on_scroll_up_area_mouse_exited():
 
 
 func _on_ready_button_pressed():
-	print("botón")
+	emit_signal("endRound", 1)
