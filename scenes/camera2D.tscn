@@ -8,6 +8,15 @@ size = Vector2(2055.5, 125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s005v"]
 size = Vector2(1959, 125)
 
+[sub_resource type="InputEventKey" id="InputEventKey_07h46"]
+keycode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_h3q1h"]
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_psnsf"]
+events = [SubResource("InputEventKey_07h46"), SubResource("InputEventKey_h3q1h")]
+
 [node name="Camera2D" type="Camera2D" unique_id=307267164]
 anchor_mode = 0
 script = ExtResource("1_qnfst")
@@ -27,7 +36,17 @@ position = Vector2(969.5, 62)
 shape = SubResource("RectangleShape2D_s005v")
 metadata/_edit_lock_ = true
 
+[node name="ReadyButton" type="Button" parent="." unique_id=1487466670]
+offset_left = 1408.0
+offset_top = 691.0
+offset_right = 1872.0
+offset_bottom = 920.0
+shortcut = SubResource("Shortcut_psnsf")
+text = "LISTO
+"
+
 [connection signal="mouse_entered" from="ScrollDownArea" to="." method="_on_scroll_down_area_mouse_entered"]
 [connection signal="mouse_exited" from="ScrollDownArea" to="." method="_on_scroll_down_area_mouse_exited"]
 [connection signal="mouse_entered" from="ScrollUpArea" to="." method="_on_scroll_up_area_mouse_entered"]
 [connection signal="mouse_exited" from="ScrollUpArea" to="." method="_on_scroll_up_area_mouse_exited"]
+[connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]

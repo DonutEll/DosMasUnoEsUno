@@ -29,6 +29,11 @@ func _on_scroll_up_area_mouse_exited():
 	movingUp = false
 
 
+func _on_ready_button_pressed():
+	print("botón")
+
+
+
 func cameraScrollDown():
 	if not movingDown:
 		return
