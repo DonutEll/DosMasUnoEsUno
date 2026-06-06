@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d0ltohsoes6nd"]
+
+[ext_resource type="PackedScene" uid="uid://ohjoxqt8alxe" path="res://scenes/Items/00_itemsBase.tscn" id="2_iqdm6"]
+[ext_resource type="PackedScene" uid="uid://bmxnaalxn1m4a" path="res://scenes/Items/01_cuerda.tscn" id="3_t58yc"]
+
+[node name="Testing" type="Node2D" unique_id=8577620]
+
+[node name="CuadradoClicable" parent="." unique_id=410238553 instance=ExtResource("2_iqdm6")]
+position = Vector2(81, 206)
+
+[node name="01_cuerda" parent="." unique_id=2019321394 instance=ExtResource("3_t58yc")]
+position = Vector2(347, 222)

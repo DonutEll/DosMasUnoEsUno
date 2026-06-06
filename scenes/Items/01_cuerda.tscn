@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bmxnaalxn1m4a"]
+
+[ext_resource type="Texture2D" uid="uid://davrnr54w2erm" path="res://icon.svg" id="2_di75g"]
+[ext_resource type="Script" uid="uid://d2d31f2unjnja" path="res://scripts/items/01_cuerda.gd" id="2_x743m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x743m"]
+size = Vector2(168, 165)
+
+[node name="01_cuerda" type="Node2D" unique_id=2019321394]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=271185844]
+position = Vector2(72, 75)
+texture = ExtResource("2_di75g")
+
+[node name="Area2D" type="Area2D" parent="Icon" unique_id=1638913301]
+position = Vector2(-72, -75)
+script = ExtResource("2_x743m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D" unique_id=889578245]
+position = Vector2(74, 72.5)
+shape = SubResource("RectangleShape2D_x743m")
+
+[connection signal="mouse_entered" from="Icon/Area2D" to="Icon/Area2D" method="_on_mouse_entered"]
