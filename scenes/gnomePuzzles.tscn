@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ds0ffdq6uw4jt" path="res://scripts/gnome_puzzles.gd" id="1_p4tmc"]
 [ext_resource type="PackedScene" uid="uid://rfstuw2it4fk" path="res://scenes/camera2D.tscn" id="1_uckfx"]
+[ext_resource type="Texture2D" uid="uid://db24572n5lb5h" path="res://assets/fondos/fondoSinTerminar.png" id="2_65sj0"]
+[ext_resource type="Texture2D" uid="uid://cg0omlb43e33f" path="res://assets/sprites/GNM_rumpel_v01.png" id="4_f16xk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s005v"]
 font_size = 64
@@ -30,6 +32,15 @@ offset_right = 1984.0
 offset_bottom = 2281.0
 mouse_filter = 2
 color = Color(0, 1, 0, 1)
+
+[node name="FondoSinTerminar" type="Sprite2D" parent="." unique_id=46091548]
+position = Vector2(960, 1137)
+texture = ExtResource("2_65sj0")
+
+[node name="GnmRumpelV01" type="Sprite2D" parent="." unique_id=1814281608]
+position = Vector2(993, 1124)
+scale = Vector2(1.8862069, 1.8862065)
+texture = ExtResource("4_f16xk")
 
 [node name="Camera2D" parent="." unique_id=307267164 instance=ExtResource("1_uckfx")]
 speed = 1000
