@@ -3,14 +3,21 @@ extends Camera2D
 @export var speed: int = 300
 var movingDown: bool = false
 var movingUp: bool = false
+const MIN_HEIGHT: int = 0
+var MAX_HEIGHT: int 
 
 func _ready():
-	pass 
+	MAX_HEIGHT = 2160 - get_viewport_rect().size.y
+	
 
 
-func _process(_delta):
-	cameraScrollDown()
-	cameraScrollUp()
+func _process(delta):
+	if Input.is_action_pressed("ScrollDown") or movingDown:
+		position.y += speed * delta
+	if Input.is_action_pressed("ScrollUp") or movingUp:
+		position.y -= speed * delta
+	
+	position.y = clamp(position.y, MIN_HEIGHT, MAX_HEIGHT)
 
 
 func _on_scroll_down_area_mouse_entered():
@@ -31,15 +38,3 @@ func _on_scroll_up_area_mouse_exited():
 
 func _on_ready_button_pressed():
 	print("botón")
-
-
-
-func cameraScrollDown():
-	if not movingDown:
-		return
-	position.y += speed * get_process_delta_time()
-
-func cameraScrollUp():
-	if not movingUp:
-		return
-	position.y -= speed * get_process_delta_time()
