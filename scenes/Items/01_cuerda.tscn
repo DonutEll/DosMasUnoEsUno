@@ -1,7 +1,26 @@
 [gd_scene format=3 uid="uid://bmxnaalxn1m4a"]
 
 [ext_resource type="Texture2D" uid="uid://davrnr54w2erm" path="res://icon.svg" id="2_di75g"]
+[ext_resource type="Shader" uid="uid://bt3yorvnosr6i" path="res://scenes/Items/outlineShd.gdshader" id="2_o5fdx"]
 [ext_resource type="Script" uid="uid://d2d31f2unjnja" path="res://scripts/items/01_cuerda.gd" id="2_x743m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_di75g"]
+shader = ExtResource("2_o5fdx")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x743m"]
+shader = ExtResource("2_o5fdx")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x743m"]
 size = Vector2(168, 165)
@@ -9,15 +28,18 @@ size = Vector2(168, 165)
 [node name="01_cuerda" type="Node2D" unique_id=2019321394]
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=271185844]
+material = SubResource("ShaderMaterial_di75g")
 position = Vector2(72, 75)
 texture = ExtResource("2_di75g")
 
-[node name="Area2D" type="Area2D" parent="Icon" unique_id=1638913301]
+[node name="clickTarget" type="Area2D" parent="Icon" unique_id=1638913301]
+material = SubResource("ShaderMaterial_x743m")
 position = Vector2(-72, -75)
 script = ExtResource("2_x743m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D" unique_id=889578245]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/clickTarget" unique_id=889578245]
 position = Vector2(74, 72.5)
 shape = SubResource("RectangleShape2D_x743m")
 
-[connection signal="mouse_entered" from="Icon/Area2D" to="Icon/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Icon/clickTarget" to="Icon/clickTarget" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Icon/clickTarget" to="Icon/clickTarget" method="_on_mouse_exited"]

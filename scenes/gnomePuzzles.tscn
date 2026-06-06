@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rfstuw2it4fk" path="res://scenes/camera2D.tscn" id="1_uckfx"]
 [ext_resource type="Texture2D" uid="uid://db24572n5lb5h" path="res://assets/fondos/fondoSinTerminar.png" id="2_65sj0"]
 [ext_resource type="Texture2D" uid="uid://cg0omlb43e33f" path="res://assets/sprites/GNM_rumpel_v01.png" id="4_f16xk"]
+[ext_resource type="PackedScene" uid="uid://do6wp8bgos83k" path="res://scenes/Items/02_cohete.tscn" id="5_r8lbn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s005v"]
 font_size = 32
@@ -32,3 +33,6 @@ offset_right = 184.0
 offset_bottom = 85.0
 text = "RONDA 1"
 label_settings = SubResource("LabelSettings_s005v")
+
+[node name="02_cohete" parent="." unique_id=2019321394 instance=ExtResource("5_r8lbn")]
+position = Vector2(1190, 1904)
