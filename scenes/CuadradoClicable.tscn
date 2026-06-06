@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ohjoxqt8alxe"]
+
+[ext_resource type="Script" uid="uid://cw5uj4vymu1y4" path="res://scenes/clickTarget.gd" id="1_akwys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ww2"]
+size = Vector2(40, 40)
+
+[node name="CuadradoClicable" type="Node2D" unique_id=410238553]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=292663372]
+offset_right = 40.000008
+offset_bottom = 40.000004
+mouse_filter = 2
+
+[node name="Area2D" type="Area2D" parent="ColorRect" unique_id=2108656651]
+script = ExtResource("1_akwys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=2021453151]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_a2ww2")
+
+[connection signal="mouse_entered" from="ColorRect/Area2D" to="ColorRect/Area2D" method="_on_mouse_entered"]
