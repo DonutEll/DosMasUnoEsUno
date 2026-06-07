@@ -2,7 +2,7 @@ extends Node2D
 @export var thisSceneCamera: puzzleCamera 
 @export var roundRequirements: Array = [[1], [2], [3], [4, 5], [6, 7], [6,3], [2, 8, 6], [9, 1, 7], [3, 6, 10], [6, 8, 9, 5]]       
 @export var items: Array[Node2D]
-#@export var itemtest: Node2D
+const FINAL_ROUND: int = 2
 var currentRound: int = 0
 var currentRoundSubmission: Array = []
 var pulsos: int = 0
@@ -17,7 +17,9 @@ func _ready():
 		var e = i.get_child(0).get_child(0)
 		e.IDtransfer.connect(recieveID)
 		print(i)
-		
+	
+	startRound()
+	
 	pass 
 
 
@@ -27,25 +29,35 @@ func _process(delta):
 	
 
 
+func startRound():
+	magicTrick()
+	
+
+
 func endRound(text):
-	currentRoundSubmission.append(text)
-	print(currentRoundSubmission)
 	if not (currentRoundSubmission == roundRequirements[currentRound]):
-		#printerr("Ronda fallida, reiniciar la ronda")
+		printerr("Ronda fallida, reiniciar la ronda")
+		currentRoundSubmission = []
+		$Camera2D/debugLabel.set_text("RONDA FALLIDA")
 		vidas -= 1
 		playAnimation($FondoSinTerminar/RumpelBrazo, "brazoDano")
 		if vidas <= 0:
-			#print("Game Over")
+			print("Game Over")
 			pass
 		return
-	#printerr("Ronda exitosa, avanzar a la siguiente ronda")
+	$Camera2D/debugLabel.set_text("RONDA EXITOSA")
+	printerr("Ronda exitosa, avanzar a la siguiente ronda")
+	currentRoundSubmission = []
 	currentRound += 1
+	if currentRound == FINAL_ROUND:
+		get_tree().change_scene_to_file("res://scenes/Testing/loseMenu.tscn")
+		return
 	updateRoundLabel()
+	startRound()
 
 
 func recieveID(itemID):
 	currentRoundSubmission.append(itemID)
-	print("wiwiwiw")
 # función recibir ID, append itemID al array CurrentRoundSubmission
 
 
@@ -54,13 +66,18 @@ func updateRoundLabel():
 	
 
 func magicTrick():
+	$Camera2D/tuTurno.set_text("ESPERA...")
 	for magicTrick in roundRequirements[currentRound]:
 		playAnimation($Camera2D/explosionAnimation, "pufExplosion")
 		playAnimation($FondoSinTerminar/RumpelBrazo, "brazoWiwiwi")
 		match magicTrick:
 			1:
-				pass
+				$actionAnimation01.show()
+				#platano girando
 			2: 
+				$actionAnimation01.hide()
+				$actionAnimation02.show()
+				#platano arriba abajo
 				pass
 			3: 
 				pass
@@ -78,9 +95,18 @@ func magicTrick():
 				pass
 			10:
 				pass
+		await get_tree().create_timer(3).timeout
 		#esperar 3 segundines
+	$Camera2D/tuTurno.set_text("TU TURNO!")
+
+
+func updateContainer():
+	pass
+
+
 
 func playAnimation(animationNode, animationPlayed):
+	print(animationPlayed)
 	animationNode.show()
 	animationNode.play(animationPlayed)
 	await animationNode.animation_finished      #Esto es un pelín sucio
