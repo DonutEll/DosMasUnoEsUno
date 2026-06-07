@@ -42,4 +42,3 @@ func _on_scroll_up_area_mouse_exited():
 
 func _on_ready_button_pressed():
 	emit_signal("endRound", 1)
-	print("botón")
