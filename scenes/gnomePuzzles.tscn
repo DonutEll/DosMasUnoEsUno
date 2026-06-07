@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds0ffdq6uw4jt" path="res://scripts/gnome_puzzles.gd" id="1_p4tmc"]
 [ext_resource type="PackedScene" uid="uid://rfstuw2it4fk" path="res://scenes/camera2D.tscn" id="1_uckfx"]
-[ext_resource type="Texture2D" uid="uid://db24572n5lb5h" path="res://assets/fondos/fondoSinTerminar.png" id="2_65sj0"]
+[ext_resource type="Texture2D" uid="uid://bk3llxcebp8cg" path="res://assets/fondos/fondo_final.png" id="2_i8prf"]
 [ext_resource type="Texture2D" uid="uid://cg0omlb43e33f" path="res://assets/sprites/GNM_rumpel_v01.png" id="4_f16xk"]
 [ext_resource type="PackedScene" uid="uid://do6wp8bgos83k" path="res://scenes/Items/02_cohete.tscn" id="5_r8lbn"]
 [ext_resource type="PackedScene" uid="uid://c1tb6v5p8o8hi" path="res://scenes/Items/04_barba.tscn" id="6_78wp4"]
@@ -13,12 +13,13 @@ font_size = 32
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="gnomePuzzles" type="Node2D" unique_id=856181745]
+[node name="gnomePuzzles" type="Node2D" unique_id=856181745 node_paths=PackedStringArray("thisSceneCamera")]
 script = ExtResource("1_p4tmc")
+thisSceneCamera = NodePath("Camera2D")
 
 [node name="FondoSinTerminar" type="Sprite2D" parent="." unique_id=46091548]
 position = Vector2(958, 1080)
-texture = ExtResource("2_65sj0")
+texture = ExtResource("2_i8prf")
 
 [node name="GnmRumpelV01" type="Sprite2D" parent="FondoSinTerminar" unique_id=1814281608]
 position = Vector2(33, -13)
