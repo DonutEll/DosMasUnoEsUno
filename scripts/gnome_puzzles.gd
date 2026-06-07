@@ -19,6 +19,7 @@ func _process(delta):
 func endRound(text):
 	currentRoundSubmission.append(text)
 	print(currentRoundSubmission)
+	$FondoSinTerminar/HandAnimation.play("MANO")
 	if not (currentRoundSubmission == roundRequirements[currentRound]):
 		printerr("Ronda fallida, reiniciar la ronda")
 		return
