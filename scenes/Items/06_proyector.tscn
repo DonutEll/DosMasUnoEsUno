@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d2ukm3876uqc5"]
+
+[ext_resource type="Shader" uid="uid://bt3yorvnosr6i" path="res://scenes/Items/outlineShd.gdshader" id="1_a54ah"]
+[ext_resource type="Texture2D" uid="uid://db5fd6n2d86mb" path="res://assets/sprites/GNM_cohete_v01.png" id="2_u3iu0"]
+[ext_resource type="Script" uid="uid://dsvjw5vmydj2h" path="res://scripts/items/06_proyector.gd" id="3_a54ah"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ddjr6"]
+shader = ExtResource("1_a54ah")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="06_proyector" type="Node2D" unique_id=2019321394]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=271185844]
+material = SubResource("ShaderMaterial_ddjr6")
+position = Vector2(-2, 6)
+texture = ExtResource("2_u3iu0")
+
+[node name="clickTarget" type="Area2D" parent="Icon" unique_id=1638913301]
+position = Vector2(-72, -75)
+script = ExtResource("3_a54ah")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Icon/clickTarget" unique_id=869923213]
+position = Vector2(72, 75)
+polygon = PackedVector2Array(92, -90.6, 73.899994, -89.5, 62.800003, -89.5, 41, -84.6, 38, -88.2, 38, -90.5, 28, -90.5, 28, -88.1, 21, -78.1, 11.899994, -75.5, 5.600006, -75.5, -46.300003, -55.6, -54, -63.3, -54, -64.7, -62, -68.8, -62, -70.5, -82.6, -70.5, -90.6, -65.5, -93.6, -65.5, -122, -45.5, -122, -36.7, -116.8, -31.5, -106.4, -31.5, -98.4, -36.5, -92.7, -36.5, -79.7, -25.5, -78, -25.5, -76, -22.900002, -76, -20.900002, -83, -3.9000015, -83, -2.199997, -94.4, -9.5, -107.5, -9.5, -126.5, 1.5, -129, 1.5, -129, 16.199997, -125, 21.199997, -125, 25, -110, 50.899994, -110, 54.199997, -93, 77.100006, -93, 79.5, -83.2, 79.5, -77.2, 73.5, -75.9, 73.5, -62, 50.600006, -59, 52.600006, -59, 54.100006, -53.199997, 55.5, -44.699997, 55.5, -39.699997, 59.5, -40, 61, -40, 62.5, -55.699997, 75.5, -58, 75.5, -58, 83.5, -54, 86.5, -54, 88.7, -34.800003, 86.5, -25.5, 86.5, -19.5, 83.5, -14.199997, 83.5, 10, 61.399994, 10, 60.199997, 35.399994, 55.5, 40.5, 55.5, 57.5, 45.5, 61.800003, 45.5, 77.5, 30.800003, 78.2, 31.5, 85, 31.5, 88, 27.5, 90, 27.5, 90, 13.300003, 94.8, 8.5, 96.100006, 8.5, 119.100006, -25.5, 120.5, -25.5, 126, -44.2, 126, -64.5, 92, -88.6)
+
+[connection signal="mouse_entered" from="Icon/clickTarget" to="Icon/clickTarget" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Icon/clickTarget" to="Icon/clickTarget" method="_on_mouse_exited"]
