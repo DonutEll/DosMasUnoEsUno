@@ -75,13 +75,18 @@ func magicTrick():
 		match magicTrick:
 			1:
 				$actionAnimation01.show()
+				$actionAnimation01.play("bananaString")
 				#platano girando
 			2: 
 				$actionAnimation01.hide()
+				$actionAnimation01.stop()
 				$actionAnimation02.show()
+				$actionAnimation02/AnimationPlayer.play("upAndDown")
 				#platano arriba abajo
 				pass
 			3: 
+				$actionAnimation02.hide()
+				$actionAnimation02/AnimationPlayer.stop()
 				pass
 			4:
 				pass
