@@ -2,6 +2,8 @@ extends Node2D
 @export var thisSceneCamera: puzzleCamera 
 @export var roundRequirements: Array = [[1], [2], [3], [4, 5], [6, 7], [6,3], [2, 8, 6], [9, 1, 7], [3, 6, 10], [6, 8, 9, 5]]       
 @export var items: Array[Node2D]
+@export var health: healthComponent
+
 const FINAL_ROUND: int = 2
 var currentRound: int = 0
 var currentRoundSubmission: Array = []
@@ -9,9 +11,12 @@ var pulsos: int = 0
 var vidas: int = 3
 
 
+
+
 func _ready():
 	updateRoundLabel()
 	thisSceneCamera.endRound.connect(endRound)
+	health.death.connect(gameOver)
 	
 	for i in items:
 		var e = i.get_child(0).get_child(0)
@@ -39,11 +44,8 @@ func endRound(text):
 		printerr("Ronda fallida, reiniciar la ronda")
 		currentRoundSubmission = []
 		$Camera2D/debugLabel.set_text("RONDA FALLIDA")
-		vidas -= 1
+		health.healthDown()
 		playAnimation($FondoSinTerminar/RumpelBrazo, "brazoDano")
-		if vidas <= 0:
-			print("Game Over")
-			pass
 		return
 	$Camera2D/debugLabel.set_text("RONDA EXITOSA")
 	printerr("Ronda exitosa, avanzar a la siguiente ronda")
@@ -102,6 +104,10 @@ func magicTrick():
 
 func updateContainer():
 	pass
+
+
+func gameOver():
+	get_tree().change_scene_to_file("res://scenes/Testing/victoryMenu.tscn")
 
 
 

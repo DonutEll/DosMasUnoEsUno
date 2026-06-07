@@ -105,6 +105,7 @@
 [ext_resource type="Texture2D" uid="uid://iwr8hrd0f7wc" path="res://assets/sprites/rumpel/GNM_rumpel_brazo_wiwiwi/GRM_Rumpel_brazo_wiwiwi_0029.png" id="92_for88"]
 [ext_resource type="Texture2D" uid="uid://b64gb8pn16533" path="res://assets/sprites/rumpel/GNM_rumpel_brazo_wiwiwi/GRM_Rumpel_brazo_wiwiwi_0030.png" id="93_3tunw"]
 [ext_resource type="Texture2D" uid="uid://cup72ofwtwpa1" path="res://assets/sprites/GNM_pufSheet_v01.png" id="95_yjuxv"]
+[ext_resource type="PackedScene" uid="uid://cxkbk3hbsv40r" path="res://scenes/Testing/health.tscn" id="96_b8oy3"]
 [ext_resource type="Texture2D" uid="uid://c002etgfn5oa6" path="res://assets/placeholder/GNM_platanoPlaceholder_v01.png" id="105_f3v1t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wmd2b"]
@@ -459,10 +460,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="gnomePuzzles" type="Node2D" unique_id=856181745 node_paths=PackedStringArray("thisSceneCamera", "items")]
+[node name="gnomePuzzles" type="Node2D" unique_id=856181745 node_paths=PackedStringArray("thisSceneCamera", "items", "health")]
 script = ExtResource("1_p4tmc")
 thisSceneCamera = NodePath("Camera2D")
 items = [NodePath("01_cuerda"), NodePath("02_cohete"), NodePath("03_boca"), NodePath("04_barba"), NodePath("05_manoBata"), NodePath("06_proyector"), NodePath("07_panelFondo"), NodePath("08_manga"), NodePath("09_nido"), NodePath("10_pie")]
+health = NodePath("Camera2D/Health")
 
 [node name="FondoSinTerminar" type="Sprite2D" parent="." unique_id=46091548]
 position = Vector2(958, 1080)
@@ -519,6 +521,9 @@ offset_left = 39.0
 offset_top = 898.0
 offset_right = 79.0
 offset_bottom = 938.0
+
+[node name="Health" parent="Camera2D" unique_id=1004178388 instance=ExtResource("96_b8oy3")]
+position = Vector2(1144, 4)
 
 [node name="03_boca" parent="." unique_id=1710468513 instance=ExtResource("10_lua0t")]
 position = Vector2(952, 674)

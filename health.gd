@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name healthComponent
+
 var health: int = 3
 @onready var firstHeart = $HBoxContainer/GnmHealthfullV01_1
 @onready var secondHeart = $HBoxContainer/GnmHealthfullV01_2
@@ -9,9 +11,6 @@ signal death
 func healthDown():
 	health = health - 1
 	updateHealth()
-
-func getHealth() -> int:
-	return health
 
 func updateHealth():
 	if health == 3:
