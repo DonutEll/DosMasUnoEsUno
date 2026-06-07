@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ohjoxqt8alxe" path="res://scenes/Items/00_itemsBase.tscn" id="2_iqdm6"]
 [ext_resource type="PackedScene" uid="uid://bmxnaalxn1m4a" path="res://scenes/Items/01_cuerda.tscn" id="3_t58yc"]
+[ext_resource type="PackedScene" uid="uid://do6wp8bgos83k" path="res://scenes/Items/02_cohete.tscn" id="3_v4mxa"]
 
 [node name="Testing" type="Node2D" unique_id=8577620]
 
@@ -10,3 +11,6 @@ position = Vector2(81, 206)
 
 [node name="01_cuerda" parent="." unique_id=2019321394 instance=ExtResource("3_t58yc")]
 position = Vector2(347, 222)
+
+[node name="02_cohete" parent="." unique_id=1617997328 instance=ExtResource("3_v4mxa")]
+position = Vector2(160, 470)
