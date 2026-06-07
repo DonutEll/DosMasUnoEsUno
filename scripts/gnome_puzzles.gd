@@ -24,8 +24,7 @@ func _ready():
 		print(i)
 	
 	startRound()
-	
-	pass 
+	$manitoxMagicas.play("animacionManosMagicas")
 
 
 
@@ -83,7 +82,6 @@ func magicTrick():
 				$actionAnimation02.show()
 				$actionAnimation02/AnimationPlayer.play("upAndDown")
 				#platano arriba abajo
-				pass
 			3: 
 				$actionAnimation02.hide()
 				$actionAnimation02/AnimationPlayer.stop()
@@ -112,6 +110,8 @@ func updateContainer():
 
 
 func gameOver():
+	#play manitos
+	#await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/Testing/victoryMenu.tscn")
 
 
