@@ -9,7 +9,7 @@ const RUMPEL_INTRO_2 = preload("uid://chslvbllm3tvm")
 const RUMPEL_TUTO = preload("uid://c1fu17wudreoy")
 
 
-const FINAL_ROUND: int = 5 ##############
+const FINAL_ROUND: int = 6 ##############
 var currentRound: int = 0
 var currentRoundSubmission: Array = []
 var pulsos: int = 0
@@ -64,6 +64,13 @@ func endRound(text):
 	currentRoundSubmission = []
 	currentRound += 1
 	if currentRound == FINAL_ROUND:
+		$FondoSinTerminar/RumpelBrazo.stop()
+		$FondoSinTerminar/RumpelBrazo.hide()
+		$manitoxMagicas.show()
+		$GrmRumpelBrazoBase.hide()
+		$"08_manga".hide()
+		$manitoxMagicas.play("animacionManosMagicas")
+		await get_tree().create_timer(10).timeout
 		get_tree().change_scene_to_file("res://scenes/Testing/loseMenu.tscn")
 		return
 	updateRoundLabel()
@@ -106,7 +113,7 @@ func magicTrick():
 				
 			5:
 				$GrmRumpelBarbaPlatano.hide()
-				$BananaBataAnimacion.hide()
+				$BananaBataAnimacion.show()
 				$BananaBataAnimacion.play("animacionBananaBata")
 				
 			6:
@@ -130,13 +137,8 @@ func updateContainer():
 
 
 func gameOver():
-	$FondoSinTerminar/RumpelBrazo.stop()
-	$FondoSinTerminar/RumpelBrazo.hide()
-	$manitoxMagicas.show()
-	$GrmRumpelBrazoBase.hide()
-	$"08_manga".hide()
-	$manitoxMagicas.play("animacionManosMagicas")
-	await get_tree().create_timer(10).timeout
+	$Camera2D/freak.play("freakyanim")
+	await get_tree().create_timer(5).timeout
 	get_tree().change_scene_to_file("res://scenes/Testing/victoryMenu.tscn")
 
 
