@@ -5,15 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://bk3llxcebp8cg" path="res://assets/fondos/fondo_final.png" id="2_i8prf"]
 [ext_resource type="Texture2D" uid="uid://cg0omlb43e33f" path="res://assets/sprites/GNM_rumpel_v01.png" id="4_f16xk"]
 [ext_resource type="PackedScene" uid="uid://do6wp8bgos83k" path="res://scenes/Items/02_cohete.tscn" id="5_r8lbn"]
+[ext_resource type="Texture2D" uid="uid://cyxe8ro2clr1w" path="res://assets/sprites/rumpel/04_cara/GRM_Rumpel_cara_base.png" id="5_wvrqg"]
 [ext_resource type="PackedScene" uid="uid://c1tb6v5p8o8hi" path="res://scenes/Items/04_barba.tscn" id="6_78wp4"]
 [ext_resource type="PackedScene" uid="uid://d2ukm3876uqc5" path="res://scenes/Items/06_proyector.tscn" id="7_50kgh"]
 [ext_resource type="PackedScene" uid="uid://cyol7qqnv28tl" path="res://scenes/Items/09_nido.tscn" id="8_50kgh"]
 [ext_resource type="PackedScene" uid="uid://bmxnaalxn1m4a" path="res://scenes/Items/01_cuerda.tscn" id="9_n4tsb"]
 [ext_resource type="PackedScene" uid="uid://byvlls6atx7t3" path="res://scenes/Items/03_boca.tscn" id="10_lua0t"]
+[ext_resource type="Texture2D" uid="uid://bl8ein58we86g" path="res://assets/sprites/rumpel/01_CuerpoSuperior/GRM_Rumpel.png" id="10_wvrqg"]
 [ext_resource type="PackedScene" uid="uid://cfu5jokjcbib4" path="res://scenes/Items/05_manoBata.tscn" id="11_wvrqg"]
 [ext_resource type="PackedScene" uid="uid://jrpa0sgqx267" path="res://scenes/Items/07_panelFondo.tscn" id="12_kxtdl"]
 [ext_resource type="PackedScene" uid="uid://b2rxc5oc0l8bj" path="res://scenes/Items/08_manga.tscn" id="13_k1g8r"]
 [ext_resource type="PackedScene" uid="uid://1deevutdnyk6" path="res://scenes/Items/10_pie.tscn" id="14_xt4gj"]
+[ext_resource type="Texture2D" uid="uid://bnvtat4p1ktc7" path="res://assets/sprites/rumpel/03_brazos/GRM_Rumpel_brazo_base.png" id="15_kxtdl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s005v"]
 font_size = 32
@@ -30,6 +33,7 @@ position = Vector2(958, 1080)
 texture = ExtResource("2_i8prf")
 
 [node name="GnmRumpelV01" type="Sprite2D" parent="FondoSinTerminar" unique_id=1814281608]
+visible = false
 position = Vector2(33, -13)
 scale = Vector2(1.8862069, 1.8862065)
 texture = ExtResource("4_f16xk")
@@ -45,8 +49,12 @@ offset_bottom = 85.0
 text = "RONDA 1"
 label_settings = SubResource("LabelSettings_s005v")
 
+[node name="GrmRumpelCaraBase" type="Sprite2D" parent="." unique_id=1109691283]
+position = Vector2(1290, 1145)
+texture = ExtResource("5_wvrqg")
+
 [node name="03_boca" parent="." unique_id=1710468513 instance=ExtResource("10_lua0t")]
-position = Vector2(952, 674)
+position = Vector2(955, 677)
 
 [node name="10_pie" parent="." unique_id=1138792217 instance=ExtResource("14_xt4gj")]
 position = Vector2(950, 1843)
@@ -56,6 +64,10 @@ position = Vector2(1244, 1906)
 
 [node name="05_manoBata" parent="." unique_id=1044257006 instance=ExtResource("11_wvrqg")]
 position = Vector2(919, 1161)
+
+[node name="GrmRumpel" type="Sprite2D" parent="." unique_id=1022981306]
+position = Vector2(1293, 1167)
+texture = ExtResource("10_wvrqg")
 
 [node name="01_cuerda" parent="." unique_id=320054969 instance=ExtResource("9_n4tsb")]
 position = Vector2(907, 1141)
@@ -69,8 +81,12 @@ position = Vector2(561, 1915)
 [node name="07_panelFondo" parent="." unique_id=573651129 instance=ExtResource("12_kxtdl")]
 position = Vector2(1523, 1118)
 
+[node name="GrmRumpelBrazoBase" type="Sprite2D" parent="." unique_id=261074191]
+position = Vector2(1293, 1173)
+texture = ExtResource("15_kxtdl")
+
 [node name="08_manga" parent="." unique_id=919455036 instance=ExtResource("13_k1g8r")]
-position = Vector2(649, 996)
+position = Vector2(739, 1040)
 
 [node name="09_nido" parent="." unique_id=276360071 instance=ExtResource("8_50kgh")]
-position = Vector2(959, 492)
+position = Vector2(959, 495)
