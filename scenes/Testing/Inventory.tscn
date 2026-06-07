@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cj1y8b6cqp66i"]
+
+[ext_resource type="Script" uid="uid://cia0btgcyllto" path="res://scenes/Testing/inventory.gd" id="1_epodp"]
+[ext_resource type="PackedScene" uid="uid://bmxnaalxn1m4a" path="res://scenes/Items/01_cuerda.tscn" id="2_u6nwi"]
+[ext_resource type="PackedScene" uid="uid://do6wp8bgos83k" path="res://scenes/Items/02_cohete.tscn" id="3_x3age"]
+[ext_resource type="PackedScene" uid="uid://byvlls6atx7t3" path="res://scenes/Items/03_boca.tscn" id="4_thkru"]
+[ext_resource type="PackedScene" uid="uid://c1tb6v5p8o8hi" path="res://scenes/Items/04_barba.tscn" id="5_72ro0"]
+[ext_resource type="PackedScene" uid="uid://cfu5jokjcbib4" path="res://scenes/Items/05_manoBata.tscn" id="6_fotin"]
+[ext_resource type="PackedScene" uid="uid://d2ukm3876uqc5" path="res://scenes/Items/06_proyector.tscn" id="7_n8chg"]
+[ext_resource type="PackedScene" uid="uid://jrpa0sgqx267" path="res://scenes/Items/07_panelFondo.tscn" id="8_ekjhl"]
+[ext_resource type="PackedScene" uid="uid://b2rxc5oc0l8bj" path="res://scenes/Items/08_manga.tscn" id="9_cpwcs"]
+[ext_resource type="PackedScene" uid="uid://cyol7qqnv28tl" path="res://scenes/Items/09_nido.tscn" id="10_blxjt"]
+[ext_resource type="PackedScene" uid="uid://1deevutdnyk6" path="res://scenes/Items/10_pie.tscn" id="11_d103n"]
+
+[node name="Inventory" type="Node2D" unique_id=1861038198 node_paths=PackedStringArray("items")]
+script = ExtResource("1_epodp")
+items = [NodePath("01_cuerda"), NodePath("02_cohete"), NodePath("03_boca"), NodePath("04_barba"), NodePath("05_manoBata"), NodePath("06_proyector"), NodePath("07_panelFondo"), NodePath("08_manga"), NodePath("09_nido"), NodePath("10_pie")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1528563740]
+offset_left = 309.0
+offset_top = 500.0
+offset_right = 349.0
+offset_bottom = 540.0
+
+[node name="01_cuerda" parent="." unique_id=2019321394 instance=ExtResource("2_u6nwi")]
+position = Vector2(341, 108)
+
+[node name="02_cohete" parent="." unique_id=1237729230 instance=ExtResource("3_x3age")]
+position = Vector2(720, 189)
+
+[node name="03_boca" parent="." unique_id=476572867 instance=ExtResource("4_thkru")]
+position = Vector2(446, 221)
+
+[node name="04_barba" parent="." unique_id=815001588 instance=ExtResource("5_72ro0")]
+visible = false
+
+[node name="05_manoBata" parent="." unique_id=604480927 instance=ExtResource("6_fotin")]
+visible = false
+
+[node name="06_proyector" parent="." unique_id=1476826524 instance=ExtResource("7_n8chg")]
+visible = false
+
+[node name="07_panelFondo" parent="." unique_id=790242072 instance=ExtResource("8_ekjhl")]
+visible = false
+
+[node name="08_manga" parent="." unique_id=876079584 instance=ExtResource("9_cpwcs")]
+visible = false
+
+[node name="09_nido" parent="." unique_id=194514382 instance=ExtResource("10_blxjt")]
+visible = false
+
+[node name="10_pie" parent="." unique_id=1454277242 instance=ExtResource("11_d103n")]
+visible = false
