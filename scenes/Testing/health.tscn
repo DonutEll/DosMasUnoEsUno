@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bip5vskb6x6h7"]
+
+[ext_resource type="Script" uid="uid://b2at52o1rd40k" path="res://health.gd" id="1_ny0b1"]
+[ext_resource type="Texture2D" uid="uid://dpqilb0tmui3d" path="res://assets/sprites/GNM_healthempty_v01.png" id="1_xmahq"]
+[ext_resource type="Texture2D" uid="uid://b1e55j5thcy8a" path="res://assets/sprites/GNM_healthfull_v01.png" id="2_ny0b1"]
+
+[node name="Health" type="Node2D" unique_id=1004178388]
+script = ExtResource("1_ny0b1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=602507402]
+offset_right = 609.0
+offset_bottom = 237.0
+
+[node name="GnmHealthfullV01_1" type="Sprite2D" parent="HBoxContainer" unique_id=91507076]
+position = Vector2(88, 117)
+texture = ExtResource("2_ny0b1")
+
+[node name="GnmHealthfullV01_3" type="Sprite2D" parent="HBoxContainer" unique_id=764013940]
+position = Vector2(485, 120)
+texture = ExtResource("2_ny0b1")
+
+[node name="GnmHealthfullV01_2" type="Sprite2D" parent="HBoxContainer" unique_id=633761798]
+position = Vector2(290, 117)
+texture = ExtResource("2_ny0b1")
+
+[node name="GnmHealthemptyV01_1" type="Sprite2D" parent="HBoxContainer" unique_id=540752429]
+position = Vector2(88, 117)
+texture = ExtResource("1_xmahq")
+
+[node name="GnmHealthemptyV01_2" type="Sprite2D" parent="HBoxContainer" unique_id=535974215]
+position = Vector2(290, 117)
+texture = ExtResource("1_xmahq")
+
+[node name="GnmHealthemptyV01_3" type="Sprite2D" parent="HBoxContainer" unique_id=1371989166]
+position = Vector2(485, 120)
+texture = ExtResource("1_xmahq")
+
+[node name="Button" type="Button" parent="." unique_id=1346856277]
+offset_left = 618.0
+offset_top = 74.0
+offset_right = 747.0
+offset_bottom = 154.0
+text = "healthdown
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
