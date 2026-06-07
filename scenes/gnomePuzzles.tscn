@@ -4,10 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rfstuw2it4fk" path="res://scenes/camera2D.tscn" id="1_uckfx"]
 [ext_resource type="Texture2D" uid="uid://bk3llxcebp8cg" path="res://assets/fondos/fondo_final.png" id="2_50kgh"]
 [ext_resource type="Texture2D" uid="uid://cg0omlb43e33f" path="res://assets/sprites/GNM_rumpel_v01.png" id="4_f16xk"]
-[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/Captura de pantalla 2026-02-04 170135.png" id="5_50kgh"]
-[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/Captura de pantalla 2026-02-08 234141.png" id="6_nyjnl"]
-[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/Captura de pantalla 2026-02-14 231708.png" id="7_edr7e"]
-[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/Captura de pantalla 2026-04-27 112501.png" id="8_qlj03"]
+[ext_resource type="PackedScene" uid="uid://do6wp8bgos83k" path="res://scenes/Items/02_cohete.tscn" id="5_r8lbn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s005v"]
 font_size = 32
@@ -80,5 +77,5 @@ offset_bottom = 85.0
 text = "RONDA  "
 label_settings = SubResource("LabelSettings_s005v")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=146258077]
-libraries/ = SubResource("AnimationLibrary_r8lbn")
+[node name="02_cohete" parent="." unique_id=2019321394 instance=ExtResource("5_r8lbn")]
+position = Vector2(1190, 1904)
