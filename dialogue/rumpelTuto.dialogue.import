@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://chw485yf850v0"
+path="res://.godot/imported/rumpelTuto.dialogue-f3899dfa98af9ea04ace29321a9fbff6.tres"
+
+[deps]
+
+source_file="res://dialogue/rumpelTuto.dialogue"
+dest_files=["res://.godot/imported/rumpelTuto.dialogue-f3899dfa98af9ea04ace29321a9fbff6.tres"]
+
+[params]
+
+defaults=true
