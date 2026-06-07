@@ -1,14 +1,18 @@
 extends Node2D
 @export var thisSceneCamera: puzzleCamera 
 @export var roundRequirements: Array = [[1], [2], [3], [4, 5], [6, 7], [6,3], [2, 8, 6], [9, 1, 7], [3, 6, 10], [6, 8, 9, 5]]       
+@export var roundRequirementsLITE: Array = [[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]] 
 @export var items: Array[Node2D]
 @export var health: healthComponent
+const RUMPEL_INTRO_1 = preload("uid://chw485yf850v0")
+const RUMPEL_INTRO_2 = preload("uid://chslvbllm3tvm")
+const RUMPEL_TUTO = preload("uid://c1fu17wudreoy")
 
-const FINAL_ROUND: int = 2
+
+const FINAL_ROUND: int = 5 ##############
 var currentRound: int = 0
 var currentRoundSubmission: Array = []
 var pulsos: int = 0
-var vidas: int = 3
 
 
 
@@ -26,12 +30,19 @@ func _ready():
 	startRound()
 	$manitoxMagicas.play("animacionManosMagicas")
 
-
+#no se llama
+func startDialogue():
+	DialogueManager.dialogue_ended.connect(PlayFreakyRumpel)
+	DialogueManager.show_dialogue_balloon(RUMPEL_INTRO_1)
+#no se llama
+	
+#no se llama
+func PlayFreakyRumpel():
+	print("dialogueEnded")
+#no se llama
 
 func _process(delta):
 	pass
-	
-
 
 func startRound():
 	magicTrick()
@@ -39,12 +50,14 @@ func startRound():
 
 
 func endRound(text):
-	if not (currentRoundSubmission == roundRequirements[currentRound]):
+	if not (currentRoundSubmission == roundRequirementsLITE[currentRound]):
 		printerr("Ronda fallida, reiniciar la ronda")
 		currentRoundSubmission = []
 		$Camera2D/debugLabel.set_text("RONDA FALLIDA")
-		health.healthDown()
+		$GrmRumpelBrazoBase.hide()
+		$"08_manga".hide()
 		playAnimation($FondoSinTerminar/RumpelBrazo, "brazoDano")
+		health.healthDown()
 		return
 	$Camera2D/debugLabel.set_text("RONDA EXITOSA")
 	printerr("Ronda exitosa, avanzar a la siguiente ronda")
@@ -68,7 +81,7 @@ func updateRoundLabel():
 
 func magicTrick():
 	$Camera2D/tuTurno.set_text("ESPERA...")
-	for magicTrick in roundRequirements[currentRound]:
+	for magicTrick in roundRequirementsLITE[currentRound]:
 		playAnimation($Camera2D/explosionAnimation, "pufExplosion")
 		playAnimation($FondoSinTerminar/RumpelBrazo, "brazoWiwiwi")
 		match magicTrick:
@@ -85,13 +98,20 @@ func magicTrick():
 			3: 
 				$actionAnimation02.hide()
 				$actionAnimation02/AnimationPlayer.stop()
-				pass
+				$GrmRumpelCaraPlatano.show()
+				
 			4:
-				pass
+				$GrmRumpelCaraPlatano.hide()
+				$GrmRumpelBarbaPlatano.show()
+				
 			5:
-				pass
+				$GrmRumpelBarbaPlatano.hide()
+				$BananaBataAnimacion.hide()
+				$BananaBataAnimacion.play("animacionBananaBata")
+				
 			6:
-				pass
+				$BananaBataAnimacion.hide()
+				$GrmRumpeDobleV01.show()
 			7:
 				pass
 			8:
@@ -110,8 +130,13 @@ func updateContainer():
 
 
 func gameOver():
-	#play manitos
-	#await get_tree().create_timer(3).timeout
+	$FondoSinTerminar/RumpelBrazo.stop()
+	$FondoSinTerminar/RumpelBrazo.hide()
+	$manitoxMagicas.show()
+	$GrmRumpelBrazoBase.hide()
+	$"08_manga".hide()
+	$manitoxMagicas.play("animacionManosMagicas")
+	await get_tree().create_timer(10).timeout
 	get_tree().change_scene_to_file("res://scenes/Testing/victoryMenu.tscn")
 
 
