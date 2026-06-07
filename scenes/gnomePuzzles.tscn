@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds0ffdq6uw4jt" path="res://scripts/gnome_puzzles.gd" id="1_p4tmc"]
 [ext_resource type="PackedScene" uid="uid://rfstuw2it4fk" path="res://scenes/camera2D.tscn" id="1_uckfx"]
-[ext_resource type="Texture2D" uid="uid://bk3llxcebp8cg" path="res://assets/fondos/fondo_final.png" id="2_50kgh"]
+[ext_resource type="Texture2D" uid="uid://db24572n5lb5h" path="res://assets/fondos/fondoSinTerminar.png" id="2_65sj0"]
 [ext_resource type="Texture2D" uid="uid://cg0omlb43e33f" path="res://assets/sprites/GNM_rumpel_v01.png" id="4_f16xk"]
 [ext_resource type="PackedScene" uid="uid://do6wp8bgos83k" path="res://scenes/Items/02_cohete.tscn" id="5_r8lbn"]
 [ext_resource type="PackedScene" uid="uid://c1tb6v5p8o8hi" path="res://scenes/Items/04_barba.tscn" id="6_78wp4"]
@@ -13,55 +13,12 @@ font_size = 32
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_hpfed"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FondoSinTerminar/GnmRumpelV01:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_f16xk")]
-}
-
-[sub_resource type="Animation" id="Animation_88juk"]
-resource_name = "new_animation"
-length = 2.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FondoSinTerminar/GnmRumpelV01:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.033333335, 0.5, 1, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("4_f16xk"), ExtResource("5_50kgh"), ExtResource("6_nyjnl"), ExtResource("7_edr7e"), ExtResource("8_qlj03")]
-}
-
-[sub_resource type="Animation" id="Animation_f16xk"]
-resource_name = "rotoscopeMano"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8lbn"]
-_data = {
-&"RESET": SubResource("Animation_hpfed"),
-&"new_animation": SubResource("Animation_88juk"),
-&"rotoscopeMano": SubResource("Animation_f16xk")
-}
-
-[node name="gnomePuzzles" type="Node2D" unique_id=856181745 node_paths=PackedStringArray("thisSceneCamera")]
+[node name="gnomePuzzles" type="Node2D" unique_id=856181745]
 script = ExtResource("1_p4tmc")
-thisSceneCamera = NodePath("Camera2D")
 
 [node name="FondoSinTerminar" type="Sprite2D" parent="." unique_id=46091548]
 position = Vector2(958, 1080)
-texture = ExtResource("2_50kgh")
+texture = ExtResource("2_65sj0")
 
 [node name="GnmRumpelV01" type="Sprite2D" parent="FondoSinTerminar" unique_id=1814281608]
 position = Vector2(33, -13)
@@ -71,12 +28,12 @@ texture = ExtResource("4_f16xk")
 [node name="Camera2D" parent="." unique_id=307267164 instance=ExtResource("1_uckfx")]
 speed = 1000
 
-[node name="RoundLabel" type="Label" parent="Camera2D" unique_id=1761294381]
+[node name="Label" type="Label" parent="Camera2D" unique_id=1761294381]
 offset_left = 42.0
 offset_top = 40.0
 offset_right = 184.0
 offset_bottom = 85.0
-text = "RONDA  "
+text = "RONDA 1"
 label_settings = SubResource("LabelSettings_s005v")
 
 [node name="02_cohete" parent="." unique_id=2019321394 instance=ExtResource("5_r8lbn")]
