@@ -5,18 +5,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ww2"]
 size = Vector2(40, 40)
 
-[node name="CuadradoClicable" type="Node2D" unique_id=410238553]
+[node name="00_itemsBase" type="Node2D" unique_id=410238553]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=292663372]
-offset_right = 40.000008
-offset_bottom = 40.000004
-mouse_filter = 2
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1547072541]
 
-[node name="Area2D" type="Area2D" parent="ColorRect" unique_id=2108656651]
+[node name="clickTarget" type="Area2D" parent="Sprite2D" unique_id=2108656651]
 script = ExtResource("1_akwys")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=2021453151]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/clickTarget" unique_id=2021453151]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_a2ww2")
 
-[connection signal="mouse_entered" from="ColorRect/Area2D" to="ColorRect/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Sprite2D/clickTarget" to="Sprite2D/clickTarget" method="_on_mouse_entered"]
